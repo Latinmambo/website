@@ -1,0 +1,464 @@
+header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;   /* evita que la imagen se desborde */
+}
+
+.header-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+
+.brief {
+    text-align: center;              /* Centrar el texto horizontalmente */
+    padding: 40px 20px;              /* Espaciado interno */
+    font-family: 'Georgia', serif;   /* Cambiar la tipografía, puedes elegir otra */
+    font-size: 1.2rem;               /* Ajustar tamaño de letra si quieres */
+    line-height: 1.6;                /* Espaciado entre líneas para mejor lectura */
+    /*max-width: 900px;                /* Limitar el ancho del texto */
+    /*margin: 0 auto;                  /* Centrar el bloque horizontalmente */
+    color: #ffffff;                  /* Color del texto (blanco) */
+    background-color: #222;
+}
+
+.free-class-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #222; /* fondo oscuro para destacar */
+    color: white;
+}
+
+.register-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #ebc60c;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #c2185b;
+}
+
+.schedule-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #111;
+    color: white;
+}
+
+.schedule-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #ebc60c;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.schedule-button:hover {
+    background-color: #c2185b;
+}
+
+.classes-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #111;
+    color: white;
+}
+
+.levels-section {
+    padding: 40px 20px;
+    background-color: #111;
+    color: white;
+    text-align: center;
+}
+
+.levels-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.level-card {
+    background-color: #222;
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.level-card:hover {
+    transform: scale(1.05);
+}
+
+.level-card h3 {
+    color: #ebc60c;
+    margin-bottom: 10px;
+}
+
+/* Configuracion Precios*/
+
+.price-section {
+    text-align: center;
+    margin: 60px auto;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.price-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.price-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.price-card {
+    background-color: #ffe603;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.price-card h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.price-card p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Purchase */
+.purchase-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #ffe603;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.purchase-button:hover {
+    background-color: #ea2d2d;
+}
+
+.purchase-card {
+    border: 2px solid #e84c3d;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #000000;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+  
+.thanks-note {
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
+}  
+
+.purchase-page {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .ticket-info-box {
+    background: #ffe603;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .payment-methods {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #ffe603;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    text-align: left;
+    color: #000000;
+  }
+
+.center-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.center-image-team {
+    display: block;
+    margin: 20px auto;
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+}
+
+.gallery {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Latin Mambo Festival*/
+.event-promo {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap; /* Para adaptarse en pantallas pequeñas */
+  }
+  
+.event-promo img {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+  
+.event-description {
+    flex: 1;
+    min-width: 250px;
+}
+
+.workshop-plan h1 {
+    text-align: center;
+    font-size: 3rem; /* Puedes ajustar a 2.5rem si lo quieres un poco más pequeño */
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.ticket-section {
+    font-size: bold;
+    padding: 40px 20px;
+    background-color: #000000;
+    text-align: center;
+}
+
+.ticket-section h1 {
+    text-align: center;
+    font-size: 3rem; /* Puedes ajustar a 2.5rem si lo quieres un poco más pequeño */
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+  
+.ticket-section h2 {
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #000000;
+}
+  
+.ticket-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+  
+.ticket-card {
+    background-color: #ffe603;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 250px;
+    max-width: 90%;
+    text-align: center;
+}
+  
+.ticket-card h3 {
+    margin-bottom: 10px;
+}
+  
+.ticket-card p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    color: #000000;
+}
+  
+.purchase-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eb0505;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+  
+.purchase-button:hover {
+    background-color: #000000;
+}
+  
+/* Menu de navegacion */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: left;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+}
+
+nav ul li a:hover {
+    color: #000000;
+    background-color: #ffe603;
+    border-radius: 5px;
+}
+
+/* Configuracion del Pie de pagina */
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;  /*Alinea los iconos horazontalmente */
+    justify-content: center;    /* Centra los iconos */
+    gap: 20px;  /* Espacio entre los iconos */
+}
+
+.social-links li {
+    display: inline-block;  /* Hace que cada icono este en una liena */
+}
+
+.social-links a {
+    color: white;
+    font-size: 32px;
+    transition: color 0.3s, transform 0.3s; /* Anadir transicion */
+}
+
+.social-links a:hover {
+    color: #007bff;     /* Cambia el color al pasar el raton */
+    transform: scale(1.1);
+}

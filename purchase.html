@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compra de Entradas - LATIN MAMBO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="header-container"></div>
+  <div id="menu-container"></div>
+
+  <main class="purchase-page">
+    <h1>Resumen de tu Compra</h1>
+    <div id="ticket-info" class="ticket-info-box">
+      <!-- Aquí va el contenido dinámico -->
+    </div>
+
+    <section class="payment-methods">
+      <h2>Método de Pago</h2>
+      <p>✅ Puedes hacer una transferencia bancaria a la siguiente cuenta:</p>
+      <ul>
+        <li><strong>Titular:</strong> Carsten Ziegler/Fuego Tanzschule</li>
+        <li><strong>IBAN:</strong> DE20660501010108355017</li>
+        <li><strong>BIC:</strong> KARSDE66XXX</li>
+        <li><strong>Referencia:</strong> Tu nombre + tipo de ticket</li>
+      </ul>
+      <p>
+        📧 Envíanos tu comprobante por WhatsApp o Email para la condirmacion de tu compra a:<br>
+        <li>+58 424 2561578<br></li>
+        <li>leninandgenesis@gmail.com</li>
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const ticketInfo = {
+      "fullpass": {
+        title: "Full Pass",
+        description: "Incluye todos los talleres, shows y la fiesta",
+        price: "75€"
+      },
+      "combo": {
+        title: "Bootcamp + Full pass",
+        description: "Incluye el Bootcamp con Diego Rivera, acceso a todos los workshops y la fiesta",
+        price: "€200"
+      },
+      "bootcamp": {
+        title: "Bootcamp Diego Rivera",
+        description: "Incluye el Bootcamp con Diego Rivera, entrada al Preparty Workshop y a la Latin Mambo Festival Party",
+        price: "€150"
+      },
+      "party": {
+        title: "Party Pass",
+        description: "Entrada al Preparty Workshop y a la Latin Mambo Festival Party",
+        price: "€15"
+      },
+      "1clase": {
+        title: "1 Clase",
+        description: "Acceso a una clase individual",
+        price: "€35"
+      },
+      "2clases": {
+        title: "2 Clases",
+        description: "Paquete de dos clases",
+        price: "€55"
+      },
+      "fullday": {
+        title: "Full Day",
+        description: "Acceso completo por un día",
+        price: "€65"
+      },
+      "m1": {
+        title: "Membresía 1h/semana",
+        description: "Una hora de clases por semana",
+        price: "€115 al mes"
+      },
+      "m2": {
+        title: "Membresía 2h/semana",
+        description: "Dos horas de clases por semana",
+        price: "€135 al mes"
+      },
+      "m3": {
+        title: "Membresía 3h/semana",
+        description: "Tres horas de clases por semana",
+        price: "€145 al mes"
+      },
+      "t1": {
+        title: "Latin Mambo Team",
+        description: "Incluye todas las clases ademas del ensayo con un grupo",
+        price: "€165 al mes"
+      },
+      "t2": {
+        title: "Genesis Latin Mambo Ladies",
+        description: "Incluye todas las clases ademas del ensayo con un grupo",
+        price: "€165 al mes"
+      },
+      "t3": {
+        title: "Latin Mambo Team & Genesis LM Ladies",
+        description: "Incluye todas las clases ademas de los ensayos con los grupos",
+        price: "€175 al mes"
+      },
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const ticketType = urlParams.get("ticket");
+    const ticket = ticketInfo[ticketType];
+
+    const ticketBox = document.getElementById("ticket-info");
+    if (ticket) {
+      ticketBox.innerHTML = `
+        <h1 style="color:black;">${ticket.title}</h1>
+        <p style="color:black;">${ticket.description}</p>
+        <h2 style="color:black;"><strong>Precio: ${ticket.price}</strong></h2>
+      `;
+    } else {
+      ticketBox.innerHTML = `<p style="color:red;">❌ Tipo de ticket no válido o no seleccionado.</p>`;
+    }
+  </script>
+  <div id="footer-container"></div>
+  <script src="script.js"></script>
+</body>
+</html>

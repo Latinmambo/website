@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+        <title>LATIN MAMBO</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+        <div id="header-container"></div>
+        <div id="menu-container"></div>
+
+        <main>
+            <img src="images/grupos lmt/IMG_9835.jpg" alt="News" class="center-image-team">
+        
+            <h1>TEAMS</h1>
+            <p>LATIN MAMBO</p>
+            <p>Genesis Latin Mambo Ladies</p>
+
+            <section class="gallery">
+                <h2>Gallery</h2>
+                <div class="gallery-grid">
+                    <img src="images/grupos lmt/4e33f3df-5d1f-42c6-a035-e706ad3fbfa4.JPG" alt="Show 1" onclick="openModal(this)">
+                    <img src="images/grupos lmt/IMG_0525.JPG" alt="Show 2" onclick="openModal(this)">
+                    <img src="images/grupos lmt/IMG_2670.JPG" alt="Show 3" onclick="openModal(this)">
+                    <img src="images/fotos de ladies/IMG_1825.JPG" alt="Show 4" onclick="openModal(this)">
+                    <img src="images/fotos de ladies/IMG_8489.jpg" alt="Show 5" onclick="openModal(this)">
+                </div>
+            </section>
+            
+            <!-- Modal (imagen agrandada) -->
+            <div id="image-modal" class="modal" onclick="closeModal()">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="modal-image">
+            </div>
+        </main>
+
+        <div id="footer-container"></div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
