@@ -472,3 +472,120 @@ footer {
     color: #007bff;     /* Cambia el color al pasar el raton */
     transform: scale(1.1);
 }
+
+/* --- 🔹 Tablets (pantallas menores a 992px) --- */
+@media (max-width: 992px) {
+    .header-video {
+        height: 50vh;
+    }
+
+    .brief {
+        font-size: 1rem;
+        padding: 30px 15px;
+    }
+
+    .levels-container, .price-container, .ticket-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .level-card, .price-card, .ticket-card {
+        width: 80%;
+        max-width: 350px;
+    }
+
+    .event-promo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .event-promo img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+}
+
+/* --- 🔹 Celulares (pantallas menores a 600px) --- */
+@media (max-width: 600px) {
+    .header-video {
+        height: 40vh;
+        min-height: 200px;
+    }
+
+    .video-container video {
+        width: 100%;
+        height: auto;
+    }
+
+    .brief {
+        font-size: 0.95rem;
+        padding: 25px 10px;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.3rem;
+    }
+
+    .register-button, .schedule-button, .purchase-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .center-image-team {
+        height: 250px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+/* --- 🔹 Pantallas muy pequeñas (menores a 400px) --- */
+@media (max-width: 400px) {
+    .header-video {
+        height: 30vh;
+    }
+
+    .brief {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .register-button, .schedule-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-card, .level-card, .ticket-card {
+        width: 95%;
+    }
+}
