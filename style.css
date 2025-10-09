@@ -132,8 +132,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* Configuracion Precios*/
-
+/* Configuracion Precios */
 .price-section {
     text-align: center;
     margin: 60px auto;
@@ -315,7 +314,7 @@ body {
     cursor: pointer;
 }
 
-/* Latin Mambo Festival*/
+/* Latin Mambo Festival */
 .event-promo {
     display: flex;
     flex-direction: row;
@@ -409,39 +408,74 @@ body {
 }
   
 /* Menu de navegacion */
-nav {
+/* NAVBAR */
+.navbar {
     background-color: #333;
-    padding: 10px 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 10px 20px;
     display: flex;
-    justify-content: left;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-nav ul li {
-    margin: 0 15px;
+/* Links contenedor */
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-nav ul li a {
+/* Estilo de los links */
+.nav-links a {
     text-decoration: none;
     color: white;
     font-size: 18px;
     padding: 10px 15px;
     display: block;
+    transition: 0.3s;
 }
 
-nav ul li a:hover {
-    color: #000000;
+.nav-links a:hover {
     background-color: #ffe603;
+    color: #000;
     border-radius: 5px;
 }
 
-/* Configuracion del Pie de pagina */
+/* Botón hamburguesa */
+.menu-toggle {
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none; /* oculto en desktop */
+}
 
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* visible en móviles */
+    }
+
+    .nav-links {
+        display: none; /* oculto por defecto */
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-links.active {
+        display: flex; /* muestra al hacer click */
+    }
+
+    .nav-links a {
+        padding: 12px;
+        text-align: center;
+        border-top: 1px solid #444;
+    }
+}
+
+/* Configuracion del Pie de pagina */
 footer {
     background-color: #333;
     color: white;
@@ -450,26 +484,56 @@ footer {
     margin-top: 20px;
 }
 
+/* Redes sociales */
 .social-links {
     list-style: none;
     padding: 0;
-    display: flex;  /*Alinea los iconos horazontalmente */
-    justify-content: center;    /* Centra los iconos */
+    display: flex;  /* Alinea los iconos horizontalmente */
+    justify-content: center; /* Centra los iconos */
     gap: 20px;  /* Espacio entre los iconos */
 }
 
 .social-links li {
-    display: inline-block;  /* Hace que cada icono este en una liena */
+    display: inline-block;  /* Hace que cada icono esté en línea */
 }
 
 .social-links a {
-    color: white;
+    color: white;           /* Color inicial */
     font-size: 32px;
-    transition: color 0.3s, transform 0.3s; /* Anadir transicion */
+    transition: color 0.3s, transform 0.3s; /* Transición suave */
 }
 
+/* Cambiar color al pasar el mouse según la red social */
+.social-links a.facebook:hover { color: #1877F2; }  /* Azul Facebook */
+.social-links a.instagram:hover { color: #a030e1; } /* Morado Instagram */
+.social-links a.youtube:hover { color: #FF0000; }   /* Rojo YouTube */
+
 .social-links a:hover {
-    color: #007bff;     /* Cambia el color al pasar el raton */
+    transform: scale(1.1);  /* Efecto de zoom */
+}
+
+/* --- Botón "TOP" --- */
+.top-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ebc60c;  /* Amarillo Latin Mambo */
+    color: #000;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: none;  /* Se muestra solo con scroll (controlado por JS) */
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.top-button:hover {
+    background-color: #c21821; /* Rosado al pasar el mouse */
+    color: white;
     transform: scale(1.1);
 }
 
