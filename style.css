@@ -408,7 +408,7 @@ body {
 }
   
 /* Menu de navegacion */
-/* NAVBAR */
+/* --- NAVBAR --- */
 .navbar {
     background-color: #333;
     padding: 10px 20px;
@@ -416,13 +416,100 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
 }
 
-/* Links contenedor */
+/* --- Botón hamburguesa --- */
+.menu-toggle {
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none; /* oculto en escritorio */
+}
+
+/* --- Links contenedor --- */
 .nav-links {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #ffe603;
+    color: #000;
+    border-radius: 5px;
+}
+
+/* --- Language Switcher --- */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.language-switcher a img {
+    width: 25px;
+    height: auto;
+    border-radius: 3px;
+    transition: transform 0.3s ease;
+}
+
+.language-switcher a img:hover {
+    transform: scale(1.15);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        background-color: #222;
+        border-top: 1px solid #444;
+        padding-top: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px;
+        text-align: center;
+        border-top: 1px solid #444;
+    }
+
+    .language-switcher {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 0;
+        border-top: 1px solid #444;
+    }
+}
+
+/* --- Opcional: hover visual mejorado en móviles --- */
+@media (hover: none) {
+    .nav-links a:hover,
+    .language-switcher a img:hover {
+        transform: none;
+    }
 }
 
 /* Estilo de los links */
@@ -439,40 +526,6 @@ body {
     background-color: #ffe603;
     color: #000;
     border-radius: 5px;
-}
-
-/* Botón hamburguesa */
-.menu-toggle {
-    font-size: 28px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: none; /* oculto en desktop */
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* visible en móviles */
-    }
-
-    .nav-links {
-        display: none; /* oculto por defecto */
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .nav-links.active {
-        display: flex; /* muestra al hacer click */
-    }
-
-    .nav-links a {
-        padding: 12px;
-        text-align: center;
-        border-top: 1px solid #444;
-    }
 }
 
 /* Configuracion del Pie de pagina */
@@ -510,6 +563,160 @@ footer {
 
 .social-links a:hover {
     transform: scale(1.1);  /* Efecto de zoom */
+}
+
+/* --- Contact Form Section --- */
+.contact-section {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #222;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffe603;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #333;
+    color: white;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid #ffe603;
+}
+
+.contact-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #ffe603;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+    background-color: #e63946;
+    color: white;
+}
+
+.contact-form input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* hace el checkbox un poco más grande */
+}
+
+.contact-form label a {
+    color: #ffe603;
+    text-decoration: underline;
+}
+
+.contact-form label a:hover {
+    color: #e63946;
+}
+
+/* Check-Box */
+/* Contenedor compacto para checkbox + texto */
+.consent-inline {
+    display: inline-flex;       /* Solo ocupa el ancho del contenido */
+    align-items: center;
+    gap: 15px;                   /* Muy poco espacio entre checkbox y texto */
+    margin: 0;                  /* Quita márgenes externos */
+    padding: 0;                 /* Quita padding interno */
+}
+
+/* Checkbox compacto */
+.consent-inline input[type="checkbox"] {
+    width: 15px;                /* Tamaño pequeño pero visible */
+    height: 15px;
+    margin: 0;                  /* Sin margen extra */
+    padding: 0;
+    transform: none;            /* Sin escalado */
+}
+
+/* Texto al lado del checkbox */
+.consent-inline label {
+    margin: 0;                  /* Sin margen */
+    font-size: 0.95rem;         /* Tamaño legible */
+    color: #ffe603;
+    font-weight: normal;
+    line-height: 1;             /* Ajusta altura para que quede centrado */
+}
+
+/* Mensajes de confirmación */
+.form-message {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.form-message.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.form-message.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* --- Privacy Policy Page --- */
+.privacy-section {
+    background-color: #111;
+    color: white;
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.privacy-section h1 {
+    color: #ffe603;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.privacy-section h2 {
+    color: #ffe603;
+    margin-top: 25px;
+}
+
+.privacy-section a {
+    color: #ffe603;
+    text-decoration: underline;
+}
+
+.privacy-section a:hover {
+    color: #e63946;
 }
 
 /* --- Botón "TOP" --- */
@@ -621,6 +828,18 @@ footer {
 
     nav ul li {
         margin: 8px 0;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-section h1 {
+        font-size: 2rem;
+    }
+
+    .contact-button {
+        width: 100%;
     }
 
     footer {

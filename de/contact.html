@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us - Latin Mambo</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <script src="/script.js" defer></script>
+    </head>
+    <body>
+        <div id="header-container"></div>
+        <div id="menu-container"></div>
+
+        <main class="contact-section">
+            <h1>Kontaktiere uns</h1>
+            <p>Wenn Sie Fragen zu unseren Kursen oder Veranstaltungen haben oder mit uns zusammenarbeiten möchten, senden Sie uns bitte eine Nachricht!</p>
+
+            <!-- 🔹 FORMULARIO FORMSPREE -->
+            <form id="contactForm" class="contact-form" action="https://formspree.io/f/mpwkagee" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="_replyto" placeholder="example@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+49 171 2345678">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Nachricht:</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <div class="form-group consent-inline">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <label for="consent">
+                        Ich akzeptiere die Erfassung und Verarbeitung meiner personenbezogenen Daten gemäß der 
+                        <a href="/privacy-policy.html" target="_blank">Datenschutzerklärung</a>.
+                    </label>
+                </div>
+
+                <button type="submit" class="contact-button">Nachricht senden</button>
+            </form>
+
+            <!-- 🔹 Mensaje de confirmación oculto por defecto -->
+            <div id="formMessage" class="form-message"></div>
+        </main>
+
+        <div id="footer-container"></div>
+    </body>
+</html>

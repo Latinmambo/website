@@ -1,64 +1,84 @@
-// Función para cargar un archivo HTML en un elemento
+// Función para cargar componentes HTML (header, menu, footer)
 function includeHTML(file, elementId) {
-    fetch(file)
-        .then(response => response.text()) // convertir la respuesta en texto
-        .then(data => {
-            document.getElementById(elementId).innerHTML = data; // inserta el contenido del elemento
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById(elementId).innerHTML = data;
 
-            /* Agregar funcionalidad del menú hamburguesa después de cargar menu.html */
-            if (elementId === "menu-container") {
-                const menuToggle = document.querySelector(".menu-toggle");
-                const navLinks = document.querySelector(".nav-links");
+      if (elementId === "menu-container") {
+        setupMenu();
+        setupLanguageSwitcher();
+      }
 
-                if (menuToggle && navLinks) {
-                    menuToggle.addEventListener("click", () => {
-                        navLinks.classList.toggle("active");
-                    });
-                }
-            }
-
-            /* Agregar funcionalidad del botón "TOP" después de cargar el footer */
-            if (elementId === "footer-container") {
-                const btnTop = document.getElementById("btnTop");
-
-                if (btnTop) {
-                    // Al hacer click, volver al inicio suavemente
-                    btnTop.addEventListener("click", () => {
-                        window.scrollTo({
-                            top: 0,
-                            behavior: "smooth"
-                        });
-                    });
-
-                    // Mostrar/ocultar el botón según el scroll
-                    window.addEventListener("scroll", () => {
-                        if (window.scrollY > 300) {
-                            btnTop.style.display = "block";
-                        } else {
-                            btnTop.style.display = "none";
-                        }
-                    });
-                }
-            }
-        })
-        .catch(error => console.error("Error cargando " + file, error));
+      if (elementId === "footer-container") {
+        setupScrollToTop();
+      }
+    })
+    .catch(error => console.error("Error cargando " + file, error));
 }
 
-// Cargar header, menú y footer automáticamente
+// 🟢 Cargar los componentes
 document.addEventListener("DOMContentLoaded", function() {
-    includeHTML("header.html", "header-container");
-    includeHTML("menu.html", "menu-container");
-    includeHTML("footer.html", "footer-container");
+  includeHTML("/components/header.html", "header-container");
+  includeHTML("/components/menu.html", "menu-container");
+  includeHTML("/components/footer.html", "footer-container");
 });
 
-// Modal de imágenes
-function openModal(imgElement) {
-    const modal = document.getElementById("image-modal");
-    const modalImg = document.getElementById("modal-image");
-    modal.style.display = "block";
-    modalImg.src = imgElement.src;
+// 🟣 Función para menú hamburguesa
+function setupMenu() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  }
 }
 
-function closeModal() {
-    document.getElementById("image-modal").style.display = "none";
+// 🟡 Función para cambiar idioma (soporta raíz para español)
+function setupLanguageSwitcher() {
+  const flags = document.querySelectorAll(".lang-flag");
+  flags.forEach(flag => {
+    flag.addEventListener("click", event => {
+      event.preventDefault();
+
+      const selectedLang = flag.getAttribute("data-lang");
+      let path = window.location.pathname;
+
+      // Normaliza rutas para evitar errores
+      path = path.replace(/^\/(en|de)\//, ""); // elimina prefijo /en/ o /de/
+
+      // Si estamos en la raíz y path está vacío, ir a index.html
+      if (path === "/" || path === "") {
+        path = "index.html";
+      }
+
+      // Redirigir según idioma
+      switch (selectedLang) {
+        case "en":
+          window.location.href = `/en/${path}`;
+          break;
+        case "de":
+          window.location.href = `/de/${path}`;
+          break;
+        default:
+          window.location.href = `/${path}`;
+          break;
+      }
+    });
+  });
+}
+
+// 🔵 Función para botón "Top"
+function setupScrollToTop() {
+  const btnTop = document.getElementById("btnTop");
+  if (btnTop) {
+    btnTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    window.addEventListener("scroll", () => {
+      btnTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+  }
 }
