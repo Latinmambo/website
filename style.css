@@ -4,7 +4,7 @@
     height: 60vh;
     min-height: 300px;
     overflow: hidden;
-    background: black;
+    background: #000;
 }
 
 .video-container {
@@ -49,47 +49,51 @@ body {
 .free-class-section {
     text-align: center;
     padding: 40px 20px;
-    background-color: #222; /* fondo oscuro para destacar */
+    background-color: #111; /* fondo oscuro para destacar */
     color: white;
 }
 
 .register-button {
     display: inline-block;
     margin-top: 20px;
-    padding: 15px 30px;
-    background-color: #ebc60c;
+    padding: 13px 30px;
+    background-color: #ffe603;
     color: #000000;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
     border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .register-button:hover {
-    background-color: #c2185b;
+    background-color: #e63946;
+    color: white;
 }
 
 .schedule-section {
     text-align: center;
     padding: 40px 20px;
-    background-color: #111;
+    background-color: #222;
     color: white;
 }
 
 .schedule-button {
     display: inline-block;
     margin-top: 20px;
-    padding: 15px 30px;
-    background-color: #ebc60c;
+    padding: 13px 30px;
+    background-color: #ffe603;
     color: #000000;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
     border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .schedule-button:hover {
-    background-color: #c2185b;
+    background-color: #e63946;
+    color: white;
 }
 
 .classes-section {
@@ -130,6 +134,86 @@ body {
 .level-card h3 {
     color: #ebc60c;
     margin-bottom: 10px;
+}
+
+/* ======================
+   SECCIÓN DE SERVICIOS
+   ====================== */
+.services-section {
+  text-align: center;
+  color: #fff;
+  margin: 60px auto;
+  width: 90%;
+  max-width: 900px;
+}
+
+.services-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #ffe603;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 230, 3, 0.4);
+}
+
+.icon-circle {
+  background-color: rgba(255, 230, 3, 0.15);
+  border: 2px solid #ffe603;
+  color: #ffe603;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(255, 230, 3, 0.4);
+}
+
+.icon-circle i {
+  font-size: 2rem;
+  color: #ffe603;
+}
+
+.service-text h3 {
+  color: #ffe603;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.service-text p {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .icon-circle {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 
 /* Configuracion Precios */
