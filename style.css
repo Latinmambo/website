@@ -344,85 +344,109 @@ body {
   border-radius: 10px; /* opcional: bordes suaves */
 }
 
+/* ===============================
+   GALERÍA GRID
+================================ */
 .gallery {
-    margin-top: 2rem;
-    text-align: center;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .gallery h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 30px;
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 }
 
 .gallery-grid img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-grid img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Flechas modal */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 3rem;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-    padding: 10px;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 50%;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.6);
-}
-
+/* ===============================
+   MODAL
+================================ */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    padding-top: 60px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
 }
 
+/* Contenedor de la imagen centrada */
 .modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 80%;
-    border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* <--- CENTRADO REAL */
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  object-fit: contain;
 }
 
 .close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.close:hover {
+  color: #ff0000;
+}
+
+/* FLECHAS */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  user-select: none;
+  transition: 0.3s;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 20px;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 20px;
+}
+
+.prev:hover, .next:hover {
+  color: #ffcc00;
 }
 
 /* Bootcamp */
@@ -946,6 +970,31 @@ footer {
         max-width: 90%;
         margin: 30px auto;
     }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+    }
+
+    .gallery-grid img {
+        height: 180px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        max-height: 75%;
+    }
+
+    .prev, .next {
+        font-size: 30px;
+        padding: 12px;
+    }
+
+    .close {
+        font-size: 35px;
+        right: 20px;
+    }
+
 
     .levels-container, .price-container, .ticket-container {
         flex-direction: column;
@@ -1015,6 +1064,25 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .gallery-grid img {
+        height: 150px;
+    }
+
+    .prev, .next {
+        font-size: 25px;
+        padding: 10px;
+    }
+
+    .close {
+        font-size: 30px;
+        right: 15px;
+    }
+
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -1070,5 +1138,25 @@ footer {
 
     .price-card, .level-card, .ticket-card {
         width: 95%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .gallery-grid img {
+        height: 120px;
+    }
+
+    .prev, .next {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .close {
+        font-size: 25px;
+        top: 15px;
+        right: 10px;
     }
 }
