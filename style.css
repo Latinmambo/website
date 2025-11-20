@@ -374,6 +374,28 @@ body {
     transform: scale(1.05);
 }
 
+/* Flechas modal */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 50%;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -415,6 +437,43 @@ body {
 
 .event-item.reverse {
     flex-direction: row-reverse;
+}
+
+/* Latin Mambo Teams */
+.team-section {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 40px 0;
+    padding: 20px;
+}
+
+.team-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.team-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.team-text {
+    flex: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .team-section,
+    .team-section.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .team-image img {
+        max-width: 100%;
+    }
 }
 
 /* Latin Mambo Festival */
@@ -820,6 +879,31 @@ footer {
 
 .privacy-section a:hover {
     color: #e63946;
+}
+
+/* --- Button Container Diseño Latin Mambo --- */
+.button-container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.button-container a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 28px;
+    background-color: #ffe603;
+    color: #000;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button-container a:hover {
+    background-color: #e63946;
+    color: #fff;
 }
 
 /* --- Botón "TOP" --- */

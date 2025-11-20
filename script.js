@@ -82,3 +82,50 @@ function setupScrollToTop() {
     });
   }
 }
+
+// 🟠 Funciones para galería modal
+let currentSlideIndex = 0;
+let galleryImages = [];
+
+// Abrir modal y mostrar imagen clickeada
+function openModal(img) {
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-image");
+
+  galleryImages = Array.from(document.querySelectorAll(".gallery-grid img"));
+  currentSlideIndex = galleryImages.indexOf(img);
+
+  modal.style.display = "block";
+  modalImg.src = img.src;
+}
+
+// Cerrar modal
+function closeModal() {
+  const modal = document.getElementById("image-modal");
+  modal.style.display = "none";
+}
+
+// Cambiar imagen dentro del modal
+function changeSlide(step) {
+  currentSlideIndex += step;
+  if (currentSlideIndex < 0) currentSlideIndex = galleryImages.length - 1;
+  if (currentSlideIndex >= galleryImages.length) currentSlideIndex = 0;
+
+  const modalImg = document.getElementById("modal-image");
+  modalImg.src = galleryImages[currentSlideIndex].src;
+}
+
+// Evitar que clic en la imagen cierre el modal y configurar botón de cerrar
+document.addEventListener("DOMContentLoaded", () => {
+  const modalImg = document.getElementById("modal-image");
+  if (modalImg) {
+    modalImg.addEventListener("click", function(event){
+      event.stopPropagation();
+    });
+  }
+
+  const closeBtn = document.querySelector("#image-modal .close");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
+});
