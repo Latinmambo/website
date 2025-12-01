@@ -968,6 +968,10 @@ footer {
         height: 50vh;
     }
 
+    .team-video video {
+        max-width: 90%;
+    }
+
     .brief {
         font-size: 1rem;
         padding: 30px 15px;
@@ -1047,6 +1051,12 @@ footer {
         height: auto;
     }
 
+    .team-video video {
+        max-width: 100%;
+        padding: 0 10px;
+        border-radius: 12px;
+    }
+
     .brief {
         font-size: 0.95rem;
         padding: 25px 10px;
@@ -1121,6 +1131,11 @@ footer {
 @media (max-width: 400px) {
     .header-video {
         height: 30vh;
+    }
+
+    .team-video video {
+        padding: 0 5px;
+        border-radius: 10px;
     }
 
     .brief {
