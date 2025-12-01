@@ -25,6 +25,13 @@
     transform: translate(-50%, -50%);
 }
 
+.team-video video {
+    width: 100%;
+    aspect-ratio: 16 / 9;    /* mantiene proporción perfecta */
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -49,7 +56,7 @@ body {
 .free-class-section {
     text-align: center;
     padding: 40px 20px;
-    background-color: #111; /* fondo oscuro para destacar */
+    background-color: #222; /* fondo oscuro para destacar */
     color: white;
 }
 
@@ -74,7 +81,7 @@ body {
 .schedule-section {
     text-align: center;
     padding: 40px 20px;
-    background-color: #222;
+    background-color: #111;
     color: white;
 }
 
