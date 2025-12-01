@@ -1,2 +1,0 @@
-videos/INTRO.MOV filter=lfs diff=lfs merge=lfs -text
-videos/INTRO.mp4 filter=lfs diff=lfs merge=lfs -text
