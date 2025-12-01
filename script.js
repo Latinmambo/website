@@ -1,4 +1,6 @@
-// Función para cargar componentes HTML (header, menu, footer)
+/* ============================================================
+   Cargar componentes HTML (header, menu, footer)
+   ============================================================ */
 function includeHTML(file, elementId) {
   fetch(file)
     .then(response => response.text())
@@ -17,17 +19,22 @@ function includeHTML(file, elementId) {
     .catch(error => console.error("Error cargando " + file, error));
 }
 
-// 🟢 Cargar los componentes
+/* ============================================================
+   Inicialización: cargar header, menú y footer
+   ============================================================ */
 document.addEventListener("DOMContentLoaded", function() {
   includeHTML("/components/header.html", "header-container");
   includeHTML("/components/menu.html", "menu-container");
   includeHTML("/components/footer.html", "footer-container");
 });
 
-// 🟣 Función para menú hamburguesa
+/* ============================================================
+   Menú hamburguesa
+   ============================================================ */
 function setupMenu() {
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
+
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("active");
@@ -35,9 +42,12 @@ function setupMenu() {
   }
 }
 
-// 🟡 Función para cambiar idioma (soporta raíz para español)
+/* ============================================================
+   Selector de idioma para 3 carpetas: /en/ /es/ /de/
+   ============================================================ */
 function setupLanguageSwitcher() {
   const flags = document.querySelectorAll(".lang-flag");
+
   flags.forEach(flag => {
     flag.addEventListener("click", event => {
       event.preventDefault();
@@ -45,49 +55,49 @@ function setupLanguageSwitcher() {
       const selectedLang = flag.getAttribute("data-lang");
       let path = window.location.pathname;
 
-      // Normaliza rutas para evitar errores
-      path = path.replace(/^\/(en|de)\//, ""); // elimina prefijo /en/ o /de/
+      // Detectar idioma actual
+      const currentLang = path.split("/")[1];
 
-      // Si estamos en la raíz y path está vacío, ir a index.html
-      if (path === "/" || path === "") {
+      // Si ya estás en un idioma, eliminar ese prefijo
+      if (["en", "es", "de"].includes(currentLang)) {
+        path = path.replace(`/${currentLang}/`, "");
+      }
+
+      // Evitar rutas vacías
+      if (path === "" || path === "/") {
         path = "index.html";
       }
 
-      // Redirigir según idioma
-      switch (selectedLang) {
-        case "en":
-          window.location.href = `/en/${path}`;
-          break;
-        case "de":
-          window.location.href = `/de/${path}`;
-          break;
-        default:
-          window.location.href = `/${path}`;
-          break;
-      }
+      // Nueva ruta final
+      window.location.href = `/${selectedLang}/${path}`;
     });
   });
 }
 
-// 🔵 Función para botón "Top"
+/* ============================================================
+   Botón "Top"
+   ============================================================ */
 function setupScrollToTop() {
   const btnTop = document.getElementById("btnTop");
-  if (btnTop) {
-    btnTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
 
-    window.addEventListener("scroll", () => {
-      btnTop.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-  }
+  if (!btnTop) return;
+
+  btnTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", () => {
+    btnTop.style.display = window.scrollY > 300 ? "block" : "none";
+  });
 }
 
-// 🟠 Funciones para galería modal
+/* ============================================================
+   Modal de imágenes (galería)
+   ============================================================ */
 let currentSlideIndex = 0;
 let galleryImages = [];
 
-// Abrir modal y mostrar imagen clickeada
+// Abrir modal
 function openModal(img) {
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-image");
@@ -105,9 +115,10 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-// Cambiar imagen dentro del modal
+// Cambiar imagen (prev/next)
 function changeSlide(step) {
   currentSlideIndex += step;
+
   if (currentSlideIndex < 0) currentSlideIndex = galleryImages.length - 1;
   if (currentSlideIndex >= galleryImages.length) currentSlideIndex = 0;
 
@@ -115,16 +126,17 @@ function changeSlide(step) {
   modalImg.src = galleryImages[currentSlideIndex].src;
 }
 
-// Evitar que clic en la imagen cierre el modal y configurar botón de cerrar
+/* ============================================================
+   Configuración adicional del modal
+   ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
   const modalImg = document.getElementById("modal-image");
+  const closeBtn = document.querySelector("#image-modal .close");
+
   if (modalImg) {
-    modalImg.addEventListener("click", function(event){
-      event.stopPropagation();
-    });
+    modalImg.addEventListener("click", e => e.stopPropagation());
   }
 
-  const closeBtn = document.querySelector("#image-modal .close");
   if (closeBtn) {
     closeBtn.addEventListener("click", closeModal);
   }
