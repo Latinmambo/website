@@ -149,6 +149,60 @@ body {
     margin-bottom: 10px;
 }
 
+/* ===============================
+   FESTIVAL BANNER
+================================ */
+
+.festival-banner {
+    display: inline-block;
+    width: 50%;
+    margin: 20px auto;
+}
+
+.festival-banner img {
+    display: block;
+    width: 100%;
+    max-width: 1000px;   /* controla tamaño en desktop */
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.festival-banner-wrapper {
+    text-align: center;
+}
+
+/* Hover bonito */
+.festival-banner img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 230, 3, 0.4);
+}
+
+@media (max-width: 992px) {
+    .festival-banner img {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .festival-banner {
+        margin: 15px auto;
+        padding: 0 10px;
+    }
+
+    .festival-banner img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .festival-banner {
+        margin: 10px auto;
+        padding: 0 5px;
+    }
+}
+
 /* ======================
    SECCIÓN DE SERVICIOS
    ====================== */
